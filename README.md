@@ -2,7 +2,7 @@ This Version is based on xuanhuan's [SS-Panel-smarty](https://github.com/xuanhua
 
 ========
 
-本软件基于[SS-Panel-smarty-Edition](https://github.com/Ahref-Group/SS-Panel-smarty-Edition)修改而来，仍有巨大多的冗余代码，已对Trojan-GFW兼容支持，大多数功能都可正常使用，有什么问题不要发issus了，能写完自己提交合并的最好都自己弄，一个5年前的破玩意凑合用嘛。
+本软件基于[SS-Panel-smarty-Edition](https://github.com/Ahref-Group/SS-Panel-smarty-Edition)修改而来，仍有巨大多的冗余代码，已对Trojan-GFW兼容支持，大多数功能都可正常使用，有什么问题不要发issues了，能写完自己提交合并的最好都自己弄，一个5年前的破玩意凑合用嘛。
 前端页面有一部分是日语的，强迫症的可以自己汉化回去。
 ========
 
