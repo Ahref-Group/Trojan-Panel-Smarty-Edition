@@ -1,6 +1,6 @@
 <h1></h1>
 <footer class="ui-footer">
-	<p>&copy; <{$site_name}> <{date('Y')}> エスエスパネルスマートエディション トロイ バージョン に基づく<br>このソフトウェアは<a href="http://ahref.me/">AHREFグループ</a>に著作権所有 <a class="btn btn-flat btn-brand-accent waves-attach" data-toggle="modal" href="#Staff">当社について</a></p>
+	<p>&copy; <{$site_name}> <{date('Y')}> トロイパネルスマートエディション に基づく<br>このソフトウェアは<a href="http://ahref.me/">AHREFグループ</a>に著作権所有 <a class="btn btn-flat btn-brand-accent waves-attach" data-toggle="modal" href="#Staff">当社について</a></p>
 </footer>
 <div class="fbtn-container">
 	<div class="fbtn-inner">

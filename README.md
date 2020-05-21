@@ -10,14 +10,14 @@ This Version is based on xuanhuan's [SS-Panel-smarty](https://github.com/xuanhua
 
 重要/Important!
 ========
+If you need to use the normal/premium node group function, please use the server customized for this panel,[please](https://github.com/kot4ri/trojan-quickstart). <br/>
+如果需要使用普通/高级节点组功能，请使用为本面板定制的服务端，[请查看这里](https://github.com/kot4ri/trojan-quickstart)。
+
 This edition requires Chrome or FireFox for compatible functioning and surfing. <br/>
 为保证兼容性，请使用 Chrome 或 FireFox。
 
 Please edit the file `/lib/config-sample.php` upon your own need, when you finished, rename the file to `/lib/config.php`. Set `$site_url` as your website address, and be sure that it contains a `/` at the end of your URL. <br/>
 请按需修改 `/lib/config-sample.php` 的设置，然后把文件重命名成 `/lib/config.php`。注意在填写网站网址`$site_url`的时候在结尾加一个 `/`。
-
-Please rename the `/lib/Ss/Code/config-sample.php` to `/lib/Ss/Code/config.php`.
-请重命名 `/lib/Ss/Code/config-sample.php` 为 `/lib/Ss/Code/config.php`。
 
 Please make sure that `/lib/Ss` has the permission to read & write. If not, please set it for convenience. <br/>
 请确保目录 `/lib/Ss` 有读写权限，如果没有请改一下。
@@ -50,6 +50,8 @@ __注意/Attention!：__
 * MCrypt Extension
 * Mysql >= 5.1
 
+  如果使用PHP 7.x，则无法使用兑换码功能和其他可能偶尔出现但不影响使用的报错。
+
 ### 安装/Install
 * Import `sql/*.sql` to your MySQL Database<br/>
   将 `sql/*.sql` 导入到 MySQL。
@@ -73,7 +75,6 @@ __注意/Attention!：__
 
 ```
 https://github.com/Ahref-Group/SS-Panel-smarty-Edition/issues/26
-注：Trojan-gfw服务端没有节点组功能，不支持从服务端判断计划允许连接。
 ```
 
 ### 使用 mail-gun 发邮件/Send mail using mail-gun

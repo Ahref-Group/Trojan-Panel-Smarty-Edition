@@ -143,6 +143,23 @@
 									<{if $oo->get_enable()==1}>
 										<p>打死也不能让别人知道哦 >_<</p>
 										<p>状态:正常</p>
+										<script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
+										<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+										<div>
+										    <span id="btn" data-clipboard-text="<{$site_url}>clash/index.php?token=<{$oo->get_pass()}>">订阅链接:<a>点击复制Clash订阅链接</a></span>
+										 </div>
+										 <div id="show" style="display: none;">已复制</div>
+										 <script>
+										    var btn=document.getElementById('btn');
+										    var clipboard=new Clipboard(btn);
+										    clipboard.on('success', function(e){
+										    $('#show').slideDown().delay(1500).slideUp(300);
+										        console.log(e);
+										    });
+										    clipboard.on('error', function(e){
+										    $('#show').slideDown().delay(1500).slideUp(300);console.log(e);
+										        });
+									    </script>
 										<p>密码:<span class="label label-brand-accent margin-right info"><{$oo->get_pass()}></span></p>
 										<{if $oo->get_plan()==A}>
 											<p>套餐:<span class="label label-brand-accent margin-right">免费用户</span></p>

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.4.15.6
+-- http://www.phpmyadmin.net
 --
--- 主机： localhost
--- 生成日期： 2020-05-16 13:34:38
--- 服务器版本： 10.0.38-MariaDB
--- PHP 版本： 7.2.27
+-- Host: localhost
+-- Generation Time: 2016-11-02 16:22:48
+-- 服务器版本： 5.5.48-log
+-- PHP Version: 5.6.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `trojan`
+-- Database: `sspanel`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +26,7 @@ SET time_zone = "+00:00";
 -- 表的结构 `invite_code`
 --
 
-CREATE TABLE `invite_code` (
+CREATE TABLE IF NOT EXISTS `invite_code` (
   `id` int(32) NOT NULL,
   `code` varchar(128) NOT NULL,
   `user` int(32) NOT NULL
@@ -40,7 +38,7 @@ CREATE TABLE `invite_code` (
 -- 表的结构 `login_ip`
 --
 
-CREATE TABLE `login_ip` (
+CREATE TABLE IF NOT EXISTS `login_ip` (
   `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `ip` char(64) NOT NULL,
@@ -54,7 +52,7 @@ CREATE TABLE `login_ip` (
 -- 表的结构 `message`
 --
 
-CREATE TABLE `message` (
+CREATE TABLE IF NOT EXISTS `message` (
   `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `had_read` tinyint(1) NOT NULL DEFAULT '0',
@@ -69,7 +67,7 @@ CREATE TABLE `message` (
 -- 表的结构 `node_info`
 --
 
-CREATE TABLE `node_info` (
+CREATE TABLE IF NOT EXISTS `node_info` (
   `id` int(11) NOT NULL,
   `node_id` int(11) NOT NULL,
   `status` varchar(10) NOT NULL,
@@ -101,12 +99,12 @@ CREATE TABLE `notice` (
 --
 
 INSERT INTO `notice` (`item`, `introduction`, `value`) VALUES
-('common_node', '普通节点公告', '<p>严禁下载AV/版权内容，挂BT/发邮件/发包/试图规避法律的大手子请趁早绕道。</p> '),
+('common_node', '普通节点公告', '普通节点公告'),
 ('home', '首页公告', '这里是首页公告'),
-('pop_up', '全局通知', 'Just a Tset :)'),
-('special_node', '高级节点公告', '<p>严禁下载AV/版权内容，挂BT/发邮件/发包/试图规避法律的大手子请趁早绕道。</p> '),
-('user_home', '用户中心公告', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/YtU_sb4jYE8\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>'),
-('user_invite', '用户邀请码公告', '<p>用户注册48小时后，才可以生成邀请码。</p>\n<p>邀请码暂时无法购买，请珍惜。</p>\n<p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>\n<p>邀请码请给认识的需要的人。</p>\n<p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>\n<p>邀请有奖励哟</p>');
+('special_node', '高级节点公告', '这里是高级节点公告'),
+('user_home', '用户中心公告', '<p>这里是用户中心公告。</p><iframe width="560" height="315" src="https://www.youtube.com/embed/5mzsD2rfR94" frameborder="0" allowfullscreen></iframe>'),
+('user_invite', '用户邀请码公告', '<p>用户注册48小时后，才可以生成邀请码。</p>\n<p>邀请码暂时无法购买，请珍惜。</p>\n<p>公共页面不定期发放邀请码，如果用完邀请码可以关注公共邀请。</p>\n<p>邀请码请给认识的需要的人。</p>\n<p>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。</p>\n<p>邀请有奖励哟</p>'),
+('pop_up', '全局通知', 'Just a Tset :)');
 
 -- --------------------------------------------------------
 
@@ -114,7 +112,7 @@ INSERT INTO `notice` (`item`, `introduction`, `value`) VALUES
 -- 表的结构 `pay_code`
 --
 
-CREATE TABLE `pay_code` (
+CREATE TABLE IF NOT EXISTS `pay_code` (
   `id` int(10) NOT NULL,
   `code_id` int(6) NOT NULL,
   `redeem_time` int(11) NOT NULL,
@@ -127,7 +125,7 @@ CREATE TABLE `pay_code` (
 -- 表的结构 `plan`
 --
 
-CREATE TABLE `plan` (
+CREATE TABLE IF NOT EXISTS `plan` (
   `id` int(11) NOT NULL,
   `plan` set('A','B','C','D','E','F') NOT NULL COMMENT '计划类型',
   `plan_id` int(2) NOT NULL COMMENT '计划子编号',
@@ -144,14 +142,15 @@ CREATE TABLE `plan` (
 -- 表的结构 `ss_node`
 --
 
-CREATE TABLE `ss_node` (
+CREATE TABLE IF NOT EXISTS `ss_node` (
   `id` int(11) NOT NULL,
   `node_name` varchar(128) NOT NULL,
   `node_type` int(3) NOT NULL,
   `node_server` varchar(128) NOT NULL,
   `node_info` varchar(2048) NOT NULL,
-  `port` varchar(128) NOT NULL,
+  `node_status` varchar(128) NOT NULL,
   `node_order` int(3) NOT NULL,
+  `parameter` varchar(2048) NOT NULL,
   `load_1` varchar(15) DEFAULT NULL,
   `cpu` varchar(15) DEFAULT NULL,
   `upload` varchar(15) DEFAULT NULL,
@@ -164,7 +163,7 @@ CREATE TABLE `ss_node` (
 -- 表的结构 `ss_reset_pwd`
 --
 
-CREATE TABLE `ss_reset_pwd` (
+CREATE TABLE IF NOT EXISTS `ss_reset_pwd` (
   `id` int(11) NOT NULL,
   `init_time` int(11) NOT NULL,
   `expire_time` int(11) NOT NULL,
@@ -178,36 +177,34 @@ CREATE TABLE `ss_reset_pwd` (
 -- 表的结构 `ss_user_admin`
 --
 
-CREATE TABLE `ss_user_admin` (
+CREATE TABLE IF NOT EXISTS `ss_user_admin` (
   `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- 转存表中的数据 `ss_user_admin`
---
-
-INSERT INTO `ss_user_admin` (`id`, `uid`) VALUES
-(1, 1);
-
 -- --------------------------------------------------------
 
 --
--- 表的结构 `users`
+-- 表的结构 `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `user` (
   `uid` int(11) NOT NULL,
   `user_name` varchar(128) CHARACTER SET utf8mb4 NOT NULL,
   `email` varchar(32) NOT NULL,
   `pass` varchar(64) NOT NULL,
-  `password` char(56) NOT NULL,
-  `display_pwd` varchar(56) NOT NULL DEFAULT '请重新发行密码',
-  `upload` bigint(20) NOT NULL,
-  `download` bigint(20) NOT NULL,
+  `passwd` varchar(16) NOT NULL,
+  `t` int(11) NOT NULL DEFAULT '0',
+  `u` bigint(20) NOT NULL,
+  `d` bigint(20) NOT NULL,
   `plan` varchar(2) CHARACTER SET utf8mb4 NOT NULL,
-  `quota` bigint(20) NOT NULL,
+  `transfer_enable` bigint(20) NOT NULL,
+  `port` int(11) NOT NULL,
+  `switch` tinyint(4) NOT NULL DEFAULT '1',
   `enable` tinyint(4) NOT NULL DEFAULT '0',
+  `protocol` char(20) NOT NULL DEFAULT 'auth_chain_a',
+  `obfs` char(20) NOT NULL DEFAULT 'tls1.2_ticket_auth',
+  `method` char(10) NOT NULL DEFAULT 'none',
   `type` tinyint(4) NOT NULL DEFAULT '1',
   `last_get_gift_time` int(11) NOT NULL DEFAULT '0',
   `last_check_in_time` int(11) NOT NULL DEFAULT '0',
@@ -221,35 +218,35 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转储表的索引
+-- Indexes for dumped tables
 --
 
 --
--- 表的索引 `invite_code`
+-- Indexes for table `invite_code`
 --
 ALTER TABLE `invite_code`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `login_ip`
+-- Indexes for table `login_ip`
 --
 ALTER TABLE `login_ip`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `message`
+-- Indexes for table `message`
 --
 ALTER TABLE `message`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `node_info`
+-- Indexes for table `node_info`
 --
 ALTER TABLE `node_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `notice`
+-- Indexes for table `notice`
 --
 ALTER TABLE `notice`
   ADD PRIMARY KEY (`item`),
@@ -257,105 +254,95 @@ ALTER TABLE `notice`
   ADD KEY `item` (`item`);
 
 --
--- 表的索引 `pay_code`
+-- Indexes for table `pay_code`
 --
 ALTER TABLE `pay_code`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `plan`
+-- Indexes for table `plan`
 --
 ALTER TABLE `plan`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `ss_node`
+-- Indexes for table `ss_node`
 --
 ALTER TABLE `ss_node`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `ss_reset_pwd`
+-- Indexes for table `ss_reset_pwd`
 --
 ALTER TABLE `ss_reset_pwd`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `ss_user_admin`
+-- Indexes for table `ss_user_admin`
 --
 ALTER TABLE `ss_user_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `users`
+-- Indexes for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`uid`);
 
 --
--- 在导出的表使用AUTO_INCREMENT
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 使用表AUTO_INCREMENT `invite_code`
+-- AUTO_INCREMENT for table `invite_code`
 --
 ALTER TABLE `invite_code`
   MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `login_ip`
+-- AUTO_INCREMENT for table `login_ip`
 --
 ALTER TABLE `login_ip`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `message`
+-- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `node_info`
+-- AUTO_INCREMENT for table `node_info`
 --
 ALTER TABLE `node_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `pay_code`
+-- AUTO_INCREMENT for table `pay_code`
 --
 ALTER TABLE `pay_code`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `plan`
+-- AUTO_INCREMENT for table `plan`
 --
 ALTER TABLE `plan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `ss_node`
+-- AUTO_INCREMENT for table `ss_node`
 --
 ALTER TABLE `ss_node`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `ss_reset_pwd`
+-- AUTO_INCREMENT for table `ss_reset_pwd`
 --
 ALTER TABLE `ss_reset_pwd`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `ss_user_admin`
+-- AUTO_INCREMENT for table `ss_user_admin`
 --
 ALTER TABLE `ss_user_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- 使用表AUTO_INCREMENT `users`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- 限制导出的表
 --
@@ -365,7 +352,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `node_info`
   ADD CONSTRAINT `node_info_ibfk_1` FOREIGN KEY (`id`) REFERENCES `ss_node` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

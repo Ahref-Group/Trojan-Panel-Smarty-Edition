@@ -15,7 +15,7 @@ $now = time();
 $UserInfo = new Ss\User\UserInfo($rs['uid']);
     
 if($rs['plan'] == 'E'||$rs['plan'] == 'C'){
-    $Users->db->update("user",[
+    $Users->db->update("users",[
     "upload" => "0",
 	"download" => "0"
         ],[

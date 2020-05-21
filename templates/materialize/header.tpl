@@ -8,7 +8,7 @@
 			</li>
 		</ul>
 		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-		<a class="header-logo margin-left-no" href="/panel.php" style="font-family: Orbitron;"><{$site_name}></a>
+		<a class="header-logo margin-left-no" href="/index.php" style="font-family: Orbitron;"><{$site_name}></a>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">

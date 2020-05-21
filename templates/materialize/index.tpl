@@ -43,18 +43,18 @@
 				<div class="col-lg-10 col-lg-push-1 col-sm-10 col-sm-push-1">	
 					<section>
 						<h2 class="content-sub-heading">クライアントのダウンロード</h2>
-						<p>以下は<{$site_name}>の推奨ソフトです。これらのソフトに対して技術サポートを提供します。</p>
+						<p>以下は<{$site_name}>の推奨ソフトウェアです。これらのソフトウェアに対して技術サポートを提供します。</p>
 						<div class="tile-wrap">
 							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="card card-brand-accent">
 									<div class="card-main">
 										<div class="card-inner">
 											<p class="card-heading">Windows</p>
-											<p>トロイ Qt5</p>
+											<p>Clash for Windows</p>
 										</div>
 										<div class="card-action">
 											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light" href="https://github.com/Trojan-Qt5/Trojan-Qt5/releases"><i class="icon icon-lg">file_download</i>&nbsp;ダウンロード</a>
+												<a class="btn btn-flat waves-attach waves-light" href="https://github.com/Fndroid/clash_for_windows_pkg/releases"><i class="icon icon-lg">file_download</i>&nbsp;ダウンロード</a>
 											</div>
 										</div>
 									</div>
@@ -64,12 +64,12 @@
 								<div class="card card-brand">
 									<div class="card-main">
 										<div class="card-inner">
-											<p class="card-heading">macOS</p>
-											<p>トロイ Qt5</p>
+											<p class="card-heading">Mac OS</p>
+											<p>ClashX</p>
 										</div>
 										<div class="card-action">
 											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light" href="https://github.com/Trojan-Qt5/Trojan-Qt5/releases"><i class="icon icon-lg">file_download</i>&nbsp;ダウンロード</a>
+												<a class="btn btn-flat waves-attach waves-light" href="https://github.com/yichengchen/clashX/releases"><i class="icon icon-lg">file_download</i>&nbsp;ダウンロード</a>
 											</div>
 										</div>
 									</div>
@@ -80,11 +80,11 @@
 									<div class="card-main">
 										<div class="card-inner">
 											<p class="card-heading">Android</p>
-											<p>Igniter</p>
+											<p>Clash for Android</p>
 										</div>
 										<div class="card-action">
 											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light" href="https://play.google.com/store/apps/details?id=io.github.trojan_gfw.igniter"><i class="icon icon-lg">file_download</i>&nbsp;ダウンロード</a>
+												<a class="btn btn-flat waves-attach waves-light" href="https://play.google.com/store/apps/details?id=com.github.kr328.clash"><i class="icon icon-lg">file_download</i>&nbsp;ダウンロード</a>
 											</div>
 										</div>
 									</div>
@@ -95,7 +95,7 @@
 									<div class="card-main">
 										<div class="card-inner">
 											<p class="card-heading">iOS</p>
-											<p>Shadowrocket</p>
+											<p>シャドウロケット</p>
 										</div>
 										<div class="card-action">
 											<div class="card-action-btn pull-left">

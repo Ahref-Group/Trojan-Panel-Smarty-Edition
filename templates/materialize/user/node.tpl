@@ -175,11 +175,11 @@
 											</div>
 										</div>
 										<{foreach $node1 as $row}>
-											<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i>高级节点</h2>
+											<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
 											<div class="card">
 												<div class="card-main">
 													<div class="card-inner">
-														成为高级用户即可享用！
+														<{$row['node_info']}>
 													</div>
 													<div class="card-action">
 														<ul class="nav nav-list margin-no pull-left">

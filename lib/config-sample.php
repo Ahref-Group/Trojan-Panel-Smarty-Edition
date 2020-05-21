@@ -40,9 +40,10 @@ $tomb = 1024*1024;
 $togb = $tomb*1024;
 //Define DB Connection  数据库信息
 define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PWD','root');
-define('DB_DBNAME','trojan-gfw');
+define('DB_PORT', '3306');
+define('DB_USER','trojan');
+define('DB_PWD','password');
+define('DB_DBNAME','trojan');
 define('DB_CHARSET','utf8');
 define('DB_TYPE','mysql'); 
 /*
@@ -68,7 +69,7 @@ $check_max = 666;
 //name
 //站点地址务必带最后的"/"
 $site_name = "トロイパネル";
-$site_url  = "https://input.your.domain/";
+$site_url  = "https://your.domain/";
 /**
  * 站点盐值，用于加密密码
  * 第一次安装请修改此值，安装后请勿修改！！否则会使所有密码失效，仅限加密方式不为1的时候有效
@@ -128,5 +129,5 @@ require_once 'do.php';
 //在smarty全局传递$site_name，$site_url，$version，$Runtime。
 $smarty->assign('site_name',$site_name);
 $smarty->assign('site_url',$site_url);
-$smarty->assign('version',$version." + trojan-gfw Version");
+$smarty->assign('version',"Trojan Panel smarty Edition ".$version);
 $smarty->assign('Runtime',$Runtime);
