@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
 					<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-						<h1 class="content-heading" style="font-family: Orbitron;">トロイセキュリティセンター</h1>
+						<h1 class="content-heading" style="font-family: Orbitron;"><{$site_name}></h1>
 					</div>
 				</div>
 			</div>
