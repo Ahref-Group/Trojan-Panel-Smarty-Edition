@@ -50,7 +50,7 @@
 										<textarea class="form-control textarea-autosize" id="node_info" rows="1"><{$rs['node_info']}></textarea>
 									</div>
 									<div class="form-group form-group-label">
-										<label class="floating-label" for="node_type">分类（0为普通节点，1为高级节点）</label>
+										<label class="floating-label" for="node_type">分类（0为普通节点，1为高级节点，2为在面板隐藏但在高级用户订阅中出现）</label>
 										<input class="form-control" id="node_type" type="text" value="<{$rs['node_type']}>">
 									</div>
 									<div class="form-group form-group-label">

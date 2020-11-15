@@ -12,10 +12,10 @@ socks-port: 1080
 redir-port: 7892 
 
 # 允许局域网的连接
-allow-lan: true
+allow-lan: false
 
 # 规则模式：Rule（规则） / Global（全局代理）/ Direct（全局直连）
-mode: Rule
+mode: rule
 
 # 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
 # 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
@@ -32,7 +32,7 @@ secret: ''
 
 
 
-Proxy:
+proxies:
 <?php
 
 require_once __DIR__ . '/../lib/config.php';
@@ -46,7 +46,7 @@ function entry() {
     global $token;
     if (getUserProfileByToken($token)['enable'] == '1') {
         echo listAllAvailableTrojanURLByToken($token);
-        echo 'Proxy Group:'.PHP_EOL.'-'.PHP_EOL.'  name: Proxy'.PHP_EOL.'  type: select'.PHP_EOL.'  proxies:'.PHP_EOL.listAllAvailableTrojanNodeNameByToken($token);
+        echo 'proxy-groups:'.PHP_EOL.'-'.PHP_EOL.'  name: Proxy'.PHP_EOL.'  type: select'.PHP_EOL.'  proxies:'.PHP_EOL.listAllAvailableTrojanNodeNameByToken($token);
     }
     
     return $result;
@@ -75,7 +75,7 @@ function listAllAvailableTrojanURLByToken($token)
 }
 
 function listAvailableByUserLevel($userLevel) {
-    $userLevel == 'D' || $userLevel == 'E'?$available = array_merge(getNodeInfoByLevel('0'), getNodeInfoByLevel('1')):$available = getNodeInfoByLevel('0') ;
+    $userLevel == 'D' || $userLevel == 'E'?$available = array_merge(getNodeInfoByLevel('0'), getNodeInfoByLevel('1'),getNodeInfoByLevel('2')):$available = getNodeInfoByLevel('0') ;
     return $available;
 }
 
@@ -126,7 +126,7 @@ function DBQuery($sql) {
 
 
 # 规则
-Rule:
+rules:
 # (GlobalTV)
 # > ABC
 - DOMAIN-SUFFIX,edgedatg.com,GlobalTV
